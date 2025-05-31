@@ -43,7 +43,7 @@ koszonesek = {
         'Hé'
     ],
     'parasztos_ittas': [
-        'Csá te b*zi',
+        'heee adjad má',
         'Hé hallod',
         'szevasz'
     ]

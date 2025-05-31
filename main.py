@@ -27,32 +27,21 @@ nevek = [
     'T. Nimród', 'V. Zsolt', 'Z. Antal', 'B. Lajos', 'D. Imre'
 ]
 
-koszonesek = {
-    'udvarias': [
-        'Üdvözlöm',
-        'Jó napot',
-        'Szervusz',
-        'Tiszteletem',
-        'Helló'
-    ],
-    'lazasabb': [
-        'Szia',
-        'Csá',
-        'Hali',
-        'Na',
-        'Hé'
-    ],
-    'parasztos_ittas': [
-        'heee adjad má',
-        'Hé hallod',
-        'szevasz'
-    ]
-}
-
+koszonesek = [
+    'Üdvözlöm', 'Jó napot', 'Szervusz', 'Tiszteletem', 'Helló',
+    'Szia', 'Csá', 'Hali', 'Na', 'Hé',
+    'heee adjad má', 'Hé hallod', 'szevasz'
+]
 
 italok = ['Dreher Világos', 'Borsodi', 'Soproni Klasszikus', 'Heineken', 'Becherovka', 'Unicum', 'Jägermeister', 'Baileys', 'Vodka (Finlandia)', 'Johnnie Walker Red Label', 'Jim Beam', 'Jack Daniel’s', 'Tokaji Aszú', 'Egri Bikavér', 'Martini Bianco', 'Gin Tonic (Bombay)', 'Tequila (Olmeca)', 'Rum (Bacardi)', 'Cider (Strongbow)', 'Rozé Fröccs']
 arak = [450, 400, 420, 550, 1200, 1300, 1400, 1600, 1500, 1800, 1700, 1900, 2000, 1500, 1000, 1800, 1600, 1500, 900, 700]
 
+def italok_lekerese():
+    print()
+    for i in range(len(italok)):
+        print(f'Sorszám: [{i}] {italok[i]} - {arak[i]} Ft.')
+    print()
+    
 print()
 print(f'Üdv, Játékunban, Ön egy kocsmáros italokat kell adnia a vásárlóknak, kezelnie kell a balhékat, el kell számolni a pénzel. (Készítette: Szabó Tamás)')
 print()
@@ -78,6 +67,16 @@ while True:
         print(f'Kezdődik a munka! {adat['nap']}. nap')
         print()
         ember = random.choice(nevek)
+        koszones = random.choice(koszonesek)
         ital = random.choice(italok)
         index = italok.index(ital)
-        print(f'')
+        print(f'{ember}: {koszones} egy {ital} lesz!')
+        print()
+        kiszolgalas_megkeztes = input('Szolgáld ki a vevőt (Add meg az ital sorszámát és árát szóközzel elválasztva!) (amennyiben nem tudod az italokat, árúkat: italok lekérése: lekérés): ').strip().lower()
+        if kiszolgalas_megkeztes == 'lekérés':
+            italok_lekerese()
+            print()
+            print(f'{ember}: {koszones} egy {ital} lesz!')
+            print()
+            kiszolgalas_megkeztes = input('Szolgáld ki a vevőt (Add meg az ital sorszámát és árát szóközzel elválasztva!) (amennyiben nem tudod az italokat, árúkat: italok lekérése: lekérés): ').strip().lower()
+            
